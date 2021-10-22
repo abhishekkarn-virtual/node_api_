@@ -1,10 +1,10 @@
-const Product = require("../model/product");
+const Product = require("../model/products");
 
-const routerProduct = require("express").Router();
+const productRouter = require("express").Router();
 
 //add product
 
-routerProduct.post(
+productRouter.post(
   "/",
   async (
     req: { body: any },
@@ -16,12 +16,15 @@ routerProduct.post(
       };
     }
   ) => {
+    console.log("i m here", req.body);
     const newProduct = new Product(req.body);
 
     try {
+      console.log("tryiing");
       const savedProduct = await newProduct.save();
       res.status(200).json(savedProduct);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   }
@@ -29,7 +32,7 @@ routerProduct.post(
 
 //update product
 
-routerProduct.patch(
+productRouter.patch(
   "/update/:productId",
   async (
     req: { params: { productId: any }; body: any },
@@ -52,7 +55,7 @@ routerProduct.patch(
 
 //delete product
 
-routerProduct.delete(
+productRouter.delete(
   "/:productId",
   async (
     req: { body: { productId: any } },
@@ -76,7 +79,7 @@ routerProduct.delete(
 
 //get a product
 
-routerProduct.get(
+productRouter.get(
   "/find/:productId",
   async (
     req: { params: { productId: any } },
@@ -99,7 +102,7 @@ routerProduct.get(
   }
 );
 
-routerProduct.get(
+productRouter.get(
   "/all",
   async (
     req: any,
@@ -113,7 +116,7 @@ routerProduct.get(
   ) => {
     console.log("get all");
     try {
-      const products = await Product.find({});
+      const products = await Product.find();
       res.status(200).json(products);
     } catch (err) {
       res.status(500).json(err);
@@ -121,4 +124,4 @@ routerProduct.get(
   }
 );
 
-module.exports = routerProduct;
+module.exports = productRouter;

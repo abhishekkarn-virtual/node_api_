@@ -1,0 +1,35 @@
+/api/products
+
+/ ----------------------------> (post) adding a Product
+/update/:productId------------> (patch)updating a product
+/:productId-------------------> (delete) deleting a product
+/find/:productId--------------> (get) getting a product
+/all  ------------------------> (get) getting all products
+
+
+
+
+/api/user
+
+/ -----------------------------> (post) creating a user
+/:userId ----------------------> (get/delete) getting/deleting a user
+
+
+
+
+/api/cart
+
+/ -----------------------------> (post) creating a cart
+/:userId ----------------------> (delete) delete a cart by userId
+/find/:userId -----------------> (get) get a cart by userId
+
+
+
+
+/api/invoice
+
+/ -----------------------------> (post) creating an invoice
+/update/:userId ---------------> (put) updating an invoice
+/:userId ----------------------> (delete) deleting an invoice
+/find/:userId------------------> (get) getting an invoice by userId
+/all --------------------------> (get) getting all invoice
