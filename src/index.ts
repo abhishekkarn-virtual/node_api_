@@ -1,5 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
+// import dotenv from "dotenv";
+// dotenv.config();
+require("dotenv").config();
 const app = express();
 import cors from "cors";
 
@@ -8,9 +11,7 @@ const userRoute = require("./routes/user");
 const cartRouter = require("./routes/cart");
 const invoiceRouter = require("./routes/invoice");
 
-const MONGO_URL =
-  "mongodb+srv://abhishek%5Fknoxpo:%40Aabhishek04121998@cluster0.fygio.mongodb.net/Ecommerce_api?retryWrites=true&w=majority";
-
+const MONGO_URL = process.env.MONGO_URL;
 mongoose
   .connect(MONGO_URL)
   .then(() => console.log("DataBase Connection Successful!!"))
@@ -23,6 +24,6 @@ app.use("/api/user", userRoute);
 app.use("/api/cart", cartRouter);
 app.use("/api/invoice", invoiceRouter);
 
-app.listen(3000, () => {
-  console.log("Backend server is running on port 3000!");
+app.listen(process.env.port, () => {
+  console.log(`Backend server is running on port ${process.env.PORT}!`);
 });
