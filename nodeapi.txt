@@ -12,7 +12,8 @@
 /api/user
 
 / -----------------------------> (post) creating a user
-/:userId ----------------------> (get/delete) getting/deleting a user
+/delete/:userId ---------------> (delete) deleting a user
+/find/:userId -----------------> (get) getting a user
 
 
 
@@ -20,7 +21,7 @@
 /api/cart
 
 / -----------------------------> (post) creating a cart
-/:userId ----------------------> (delete) delete a cart by userId
+/delete/:userId ---------------> (delete) delete a cart by userId
 /find/:userId -----------------> (get) get a cart by userId
 
 
@@ -29,7 +30,6 @@
 /api/invoice
 
 / -----------------------------> (post) creating an invoice
-/update/:userId ---------------> (put) updating an invoice
-/:userId ----------------------> (delete) deleting an invoice
+/delete/:userId ---------------> (delete) deleting an invoice
 /find/:userId------------------> (get) getting an invoice by userId
 /all --------------------------> (get) getting all invoice

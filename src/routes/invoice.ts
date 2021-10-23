@@ -4,7 +4,7 @@ const invoiceRouter = require("express").Router();
 invoiceRouter.post(
   "/",
   async (
-    req: any,
+    req: { body: any },
     res: {
       status: (arg0: number) => {
         (): any;
@@ -14,6 +14,7 @@ invoiceRouter.post(
     }
   ) => {
     const newOrder = new Invoice(req.body);
+    console.log(req.body);
 
     try {
       const savedOrder = await newOrder.save();
@@ -56,7 +57,7 @@ invoiceRouter.put(
 
 //DELETE
 invoiceRouter.delete(
-  "/:userId",
+  "/delete/:userId",
   async (
     req: { params: { userId: any } },
     res: {

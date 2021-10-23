@@ -21,7 +21,7 @@ app.use(cors());
 app.use("/api/products", productRouter);
 app.use("/api/user", userRoute);
 app.use("/api/cart", cartRouter);
-app.use("api/invoice", invoiceRouter);
+app.use("/api/invoice", invoiceRouter);
 
 app.listen(3000, () => {
   console.log("Backend server is running on port 3000!");
