@@ -27,7 +27,7 @@ cartRouter.post(
 
 //UPDATE
 cartRouter.put(
-  "/:userId",
+  "/update/:userId",
   async (
     req: { params: { userId: string }; body: any },
     res: {
@@ -57,7 +57,7 @@ cartRouter.put(
 
 //DELETE
 cartRouter.delete(
-  "/:userId",
+  "/delete/:userId",
   async (
     req: { params: { userId: any } },
     res: {

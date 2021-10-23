@@ -16,11 +16,9 @@ productRouter.post(
       };
     }
   ) => {
-    console.log("i m here", req.body);
     const newProduct = new Product(req.body);
 
     try {
-      console.log("tryiing");
       const savedProduct = await newProduct.save();
       res.status(200).json(savedProduct);
     } catch (err) {
@@ -45,7 +43,9 @@ productRouter.patch(
     }
   ) => {
     try {
-      Product.updateOne({ productId: req.params.productId }, req.body);
+      await Product.updateOne({ productId: req.params.productId }, req.body, {
+        strict: false,
+      });
       res.status(200).json("Product Updated Successfully!!");
     } catch (err) {
       res.status(500).json(err);
@@ -114,7 +114,6 @@ productRouter.get(
       };
     }
   ) => {
-    console.log("get all");
     try {
       const products = await Product.find();
       res.status(200).json(products);

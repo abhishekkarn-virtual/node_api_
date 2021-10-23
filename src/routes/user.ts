@@ -26,7 +26,7 @@ userRouter.post(
 );
 
 userRouter.get(
-  "/:userId",
+  "/find/:userId",
   async (
     req: { params: { userId: any } },
     res: {
@@ -48,7 +48,7 @@ userRouter.get(
 );
 
 userRouter.delete(
-  "/:userId",
+  "/delete/:userId",
   async (
     req: { params: { userId: any } },
     res: {
