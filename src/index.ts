@@ -24,6 +24,6 @@ app.use("/api/user", userRoute);
 app.use("/api/cart", cartRouter);
 app.use("/api/invoice", invoiceRouter);
 
-app.listen(process.env.port, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Backend server is running on port ${process.env.PORT}!`);
 });
